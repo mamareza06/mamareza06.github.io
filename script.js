@@ -1,5 +1,5 @@
 const countdown = document.getElementById('countdown');
-const eventDate = new Date("July 12, 2025 10:00:00").getTime();
+const eventDate = new Date("June 16, 2025 08:00:00").getTime();
 
 setInterval(() => {
     const now = new Date().getTime();
