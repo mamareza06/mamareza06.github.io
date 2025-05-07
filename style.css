@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fffafc;
+    color: #333;
+}
+.hero-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.hero {
+    position: relative;
+    background-image: url('https://source.unsplash.com/1600x900/?wedding,flowers');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.photo-section {
+    margin: 30px 0;
+}
+
+.couple-photo {
+    width: 250px;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.overlay {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5em;
+    margin: 0;
+}
+
+.overlay p {
+    font-size: 1.2em;
+}
+
+.content {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.btn {
+    background-color: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 30px;
+    margin: 10px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #c2185b;
+}
+.mempelai {
+    background-color: #fff8f9;
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.mempelai h3 {
+    margin-bottom: 15px;
+    color: #e91e63;
+}
+
+.mempelai p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+.penutup {
+    background-color: #fff0f5;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #f5c6cb;
+    margin-top: 40px;
+}
+
+.penutup h3 {
+    color: #e91e63;
+    margin-bottom: 15px;
+}
+
+.nama-keluarga p {
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fce4ec;
+    font-size: 0.9em;
+}
