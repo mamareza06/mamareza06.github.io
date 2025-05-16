@@ -111,6 +111,17 @@ body {
     font-weight: 500;
 }
 
+.scroll-wrapper {
+  display: inline-block;
+  padding-bottom: 10px; /* Untuk memberikan sedikit ruang di bagian bawah */
+}
+
+.scroll-item {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 10px; /* Memberikan jarak antar item */
+  background-color: #eee;
+}
 
 footer {
     text-align: justify;
