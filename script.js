@@ -17,3 +17,19 @@ setInterval(() => {
 
     countdown.innerHTML = `💍 ${days} hari ${hrs} jam ${mins} menit ${secs} detik`;
 }, 1000);
+
+let currentSlide = 0;
+  const images = document.querySelectorAll('#slider img');
+  const captions = document.querySelectorAll('.caption');
+
+  function changeSlide() {
+    images[currentSlide].classList.remove('active');
+    captions[currentSlide].classList.remove('active');
+
+    currentSlide = (currentSlide + 1) % images.length;
+
+    images[currentSlide].classList.add('active');
+    captions[currentSlide].classList.add('active');
+  }
+
+  setInterval(changeSlide, 3000); // Ganti setiap 3 detik
