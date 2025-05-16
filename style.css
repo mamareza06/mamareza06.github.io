@@ -135,7 +135,7 @@ body {
     }
 #slider {
       width: 100%;
-      height: 100%;
+      height: 500%;
       overflow: hidden;
       position: relative;
       display: flex;
@@ -158,7 +158,7 @@ body {
     }
 
     .caption {
-      margin-top: 16px;
+      margin-top: 10px;
       font-size: 16px;
       color: #333;
       display: none;
