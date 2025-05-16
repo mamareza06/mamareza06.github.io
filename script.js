@@ -32,4 +32,4 @@ let currentSlide = 0;
     captions[currentSlide].classList.add('active');
   }
 
-  setInterval(changeSlide, 3000); // Ganti setiap 3 detik
+  setInterval(changeSlide, 5000); // Ganti setiap 3 detik
