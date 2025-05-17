@@ -33,3 +33,14 @@ let currentSlide = 0;
   }
 
   setInterval(changeSlide, 5000); // Ganti setiap 3 detik
+
+function playMusicAndReload() {
+            // Mainkan musik
+            var audio = document.getElementById("myAudio");
+            audio.play();
+
+            // Reload halaman (mengarah ke dirinya sendiri)
+            setTimeout(function () {
+                window.location.href = window.location.href;
+            }, 2000); // Tunggu 2 detik sebelum reload (agar musik terdengar dulu)
+        }
