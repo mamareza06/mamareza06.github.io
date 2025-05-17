@@ -37,12 +37,10 @@ let currentSlide = 0;
 const button = document.getElementById("playButton");
         const audio = document.getElementById("myAudio");
 
-        // Jika sesi sebelumnya sudah berakhir (browser ditutup), hapus posisi musik
+        // Hapus posisi musik jika browser dibuka ulang
         if (!sessionStorage.getItem("sesiAktif")) {
             localStorage.removeItem("musikPosisi");
         }
-
-        // Tandai sesi aktif agar saat reload tidak menghapus
         sessionStorage.setItem("sesiAktif", "ya");
 
         // Saat halaman dimuat
@@ -54,20 +52,21 @@ const button = document.getElementById("playButton");
                     console.error("Gagal melanjutkan musik:", err);
                 });
                 button.style.display = "none";
+                document.body.classList.remove("no-scroll"); // Aktifkan scroll
             }
         });
 
         // Saat tombol diklik
         button.addEventListener("click", () => {
             button.style.display = "none";
+            document.body.classList.remove("no-scroll"); // Aktifkan scroll
+
             audio.currentTime = 0;
             audio.play().then(() => {
-                // Simpan posisi setiap 500ms
                 const interval = setInterval(() => {
                     localStorage.setItem("musikPosisi", audio.currentTime);
                 }, 500);
 
-                // Reload setelah 3 detik
                 setTimeout(() => {
                     clearInterval(interval);
                     window.location.reload();
@@ -76,5 +75,6 @@ const button = document.getElementById("playButton");
                 console.error("Gagal memutar musik:", err);
                 alert("Gagal memutar musik. Pastikan file tersedia dan Anda klik tombol.");
                 button.style.display = "inline-block";
+                document.body.classList.add("no-scroll"); // Kunci scroll lagi jika gagal
             });
         });
