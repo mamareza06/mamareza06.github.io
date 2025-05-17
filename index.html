@@ -34,11 +34,15 @@
             <h1>Dony & Eva</h1>
             <p>Senin, 16 Juni 2025</p>
             <div class="countdown" id="countdown"></div>
-		  <!-- Tombol yang akan hilang setelah diklik -->
-    <button id="playButton" onclick="playMusicAndReload()">Buka dan Putar Musik</button>
+		<!-- Tombol yang akan hilang setelah diklik -->
+    <button id="playButton">Buka dan Putar Musik</button>
 
     <!-- Audio player -->
-    <audio id="myAudio" src="musik.mp3"></audio>
+    <audio id="myAudio" preload="auto">
+        <!-- Ganti src di bawah ini dengan file lokal atau URL eksternal -->
+        <source src="musik.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung audio.
+    </audio>
 
 
         </div>
