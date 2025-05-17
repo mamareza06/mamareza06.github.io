@@ -34,51 +34,41 @@ let currentSlide = 0;
 
   setInterval(changeSlide, 5000); // Ganti setiap 3 detik
 
-const audio = document.getElementById("myAudio");
-        const playBtn = document.getElementById("playButton");
-        const pauseBtn = document.getElementById("pauseButton");
+const button = document.getElementById("playButton");
+        const audio = document.getElementById("myAudio");
 
-        // Saat halaman dimuat, cek apakah ada status sebelumnya
+        // Jika ada posisi waktu sebelumnya, set dan mainkan musik
         window.addEventListener("DOMContentLoaded", () => {
             const lastTime = localStorage.getItem("musikPosisi");
-            const wasPlaying = localStorage.getItem("musikStatus");
-
-            if (lastTime !== null) {
+            if (lastTime) {
                 audio.currentTime = parseFloat(lastTime);
-            }
-
-            if (wasPlaying === "playing") {
-                audio.play().then(() => {
-                    playBtn.style.display = "none";
-                    pauseBtn.style.display = "inline-block";
-                }).catch(err => {
-                    console.warn("Autoplay diblokir. Pengguna harus klik terlebih dahulu.");
+                audio.play().catch(err => {
+                    console.error("Gagal melanjutkan musik:", err);
                 });
+                // Sembunyikan tombol agar tidak mengulang
+                button.style.display = "none";
             }
         });
 
-        // Simpan posisi dan status setiap 500ms
-        setInterval(() => {
-            localStorage.setItem("musikPosisi", audio.currentTime);
-            localStorage.setItem("musikStatus", audio.paused ? "paused" : "playing");
-        }, 500);
-
-        // Tombol play
-        playBtn.addEventListener("click", () => {
-            playBtn.style.display = "none";
-            pauseBtn.style.display = "inline-block";
+        // Saat tombol diklik, mulai musik dari awal, lalu reload
+        button.addEventListener("click", () => {
+            button.style.display = "none";
 
             audio.currentTime = 0;
-            audio.play().catch(err => {
-                alert("Gagal memutar musik. Pastikan file tersedia.");
-                playBtn.style.display = "inline-block";
-                pauseBtn.style.display = "none";
-            });
-        });
+            audio.play().then(() => {
+                // Simpan waktu pemutaran setiap 500ms
+                const interval = setInterval(() => {
+                    localStorage.setItem("musikPosisi", audio.currentTime);
+                }, 500);
 
-        // Tombol pause
-        pauseBtn.addEventListener("click", () => {
-            audio.pause();
-            pauseBtn.style.display = "none";
-            playBtn.style.display = "inline-block";
+                // Reload setelah 3 detik
+                setTimeout(() => {
+                    clearInterval(interval); // berhenti simpan waktu
+                    window.location.reload();
+                }, 3000);
+            }).catch(err => {
+                console.error("Gagal memutar musik:", err);
+                alert("Gagal memutar musik. Pastikan file tersedia dan Anda klik tombol.");
+                button.style.display = "inline-block";
+            });
         });
