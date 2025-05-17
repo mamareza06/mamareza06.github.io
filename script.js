@@ -35,12 +35,15 @@ let currentSlide = 0;
   setInterval(changeSlide, 5000); // Ganti setiap 3 detik
 
 function playMusicAndReload() {
+            // Hilangkan tombol
+            document.getElementById("playButton").style.display = "none";
+
             // Mainkan musik
             var audio = document.getElementById("myAudio");
             audio.play();
 
-            // Reload halaman (mengarah ke dirinya sendiri)
+            // Reload halaman setelah beberapa detik
             setTimeout(function () {
                 window.location.href = window.location.href;
-            }, 2000); // Tunggu 2 detik sebelum reload (agar musik terdengar dulu)
+            }, 2000); // 2 detik agar musik sempat terdengar
         }
