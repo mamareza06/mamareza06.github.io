@@ -168,6 +168,10 @@ body {
       display: block;
     }
 
+/* Kunci scroll awal */
+        body.no-scroll {
+            overflow: hidden;
+        }
 
 footer {
     text-align: justify;
