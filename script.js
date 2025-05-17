@@ -70,7 +70,7 @@ const button = document.getElementById("playButton");
                 setTimeout(() => {
                     clearInterval(interval);
                     window.location.reload();
-                }, 3000);
+                }, 21700);
             }).catch(err => {
                 console.error("Gagal memutar musik:", err);
                 alert("Gagal memutar musik. Pastikan file tersedia dan Anda klik tombol.");
