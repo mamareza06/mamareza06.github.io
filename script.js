@@ -66,6 +66,11 @@ const button = document.getElementById("playButton");
                 const interval = setInterval(() => {
                     localStorage.setItem("musikPosisi", audio.currentTime);
                 }, 500);
+                // Saat tombol diklik
+        button.addEventListener("click", () => {
+            button.style.display = "none";
+            document.body.classList.remove("no-scroll"); // Aktifkan scroll
+
 
                 // Reload setelah 3 detik
                 setTimeout(() => {
