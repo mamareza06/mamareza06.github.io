@@ -34,16 +34,26 @@ let currentSlide = 0;
 
   setInterval(changeSlide, 5000); // Ganti setiap 3 detik
 
-function playMusicAndReload() {
-            // Hilangkan tombol
-            document.getElementById("playButton").style.display = "none";
+document.getElementById("playButton").addEventListener("click", function () {
+            const button = this;
+            const audio = document.getElementById("myAudio");
 
-            // Mainkan musik
-            var audio = document.getElementById("myAudio");
-            audio.play();
+            // Sembunyikan tombol agar tidak bisa diklik lagi
+            button.style.display = "none";
 
-            // Reload halaman setelah beberapa detik
-            setTimeout(function () {
-                window.location.href = window.location.href;
-            }, 2000); // 2 detik agar musik sempat terdengar
-        }
+            // Mainkan musik sebagai respons dari interaksi pengguna
+            audio.play().then(() => {
+                console.log("Musik berhasil diputar.");
+
+                // Setelah 2 detik, reload halaman
+                setTimeout(() => {
+                    window.location.href = window.location.href;
+                }, 2000);
+            }).catch(err => {
+                // Jika gagal, tampilkan pesan
+                console.error("Gagal memutar musik:", err);
+                alert("Gagal memutar musik. Pastikan file tersedia dan Anda sudah klik tombol.");
+                // Tampilkan kembali tombol agar bisa dicoba ulang
+                button.style.display = "inline-block";
+            });
+        });
